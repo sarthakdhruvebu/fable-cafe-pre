@@ -1,0 +1,278 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-fraunces);
+  --font-display: var(--font-fraunces);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+  --color-sage: var(--sage);
+  --color-wine: var(--wine);
+  --color-brass: var(--brass);
+  --color-foam: var(--foam);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Fable: storybook cafe — moss mist, deep ink, wine, brass */
+  --ink: #14251c;
+  --mist: #e7efe6;
+  --sage: #6f8f78;
+  --wine: #6b2d3c;
+  --brass: #b08d57;
+  --foam: #f3f7f2;
+  --draft-banner-height: 0px;
+
+  --background: var(--mist);
+  --foreground: var(--ink);
+  --card: var(--foam);
+  --card-foreground: var(--ink);
+  --popover: var(--foam);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--foam);
+  --secondary: #d7e4d6;
+  --secondary-foreground: var(--ink);
+  --muted: #dce8db;
+  --muted-foreground: #3d5346;
+  --accent: var(--wine);
+  --accent-foreground: #fff8f6;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: color-mix(in srgb, var(--ink) 12%, transparent);
+  --input: color-mix(in srgb, var(--ink) 14%, transparent);
+  --ring: var(--sage);
+  --chart-1: var(--wine);
+  --chart-2: var(--sage);
+  --chart-3: var(--brass);
+  --chart-4: var(--ink);
+  --chart-5: #9bb5a0;
+  --radius: 0.5rem;
+  --sidebar: var(--foam);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--foam);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, color-mix(in srgb, var(--sage) 28%, transparent), transparent 55%),
+      radial-gradient(ellipse 70% 45% at 95% 5%, color-mix(in srgb, var(--brass) 18%, transparent), transparent 50%),
+      linear-gradient(180deg, var(--mist), var(--foam) 45%, var(--mist));
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.animate-soft-zoom {
+  animation: soft-zoom 8s ease-out both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--brass) 70%, transparent),
+    transparent
+  );
+}
+
+/* Cafe floor motif — tumbling-block tile from The Fable interiors */
+.floor-pattern {
+  background-color: #f3f1ea;
+  background-image: url("/floor-pattern.svg");
+  background-size: 140px 121px;
+  background-repeat: repeat;
+}
+
+.floor-veil {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--mist) 88%, transparent),
+      color-mix(in srgb, var(--foam) 82%, transparent)
+    ),
+    url("/floor-pattern.svg");
+  background-size: auto, 140px 121px;
+  background-repeat: no-repeat, repeat;
+}
+
+html.draft-preview {
+  --draft-banner-height: 30px;
+}
+
+html.draft-preview body {
+  padding-top: var(--draft-banner-height);
+}
+
+.draft-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--draft-banner-height);
+  padding: 0.35rem 0.75rem;
+  box-sizing: border-box;
+  background: #ffd60a;
+  color: #111;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.draft-banner__label {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.draft-banner__note {
+  display: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .draft-banner__note {
+    display: inline;
+  }
+}
+
+@media print {
+  .draft-banner {
+    display: none !important;
+  }
+
+  html.draft-preview {
+    --draft-banner-height: 0px;
+  }
+
+  html.draft-preview body {
+    padding-top: 0;
+  }
+}

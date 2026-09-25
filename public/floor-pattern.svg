@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="208" viewBox="0 0 240 208">
+  <defs>
+    <pattern id="p" width="120" height="104" patternUnits="userSpaceOnUse">
+      <!-- classic tumbling block -->
+      <polygon points="60,0 120,34.67 60,69.33 0,34.67" fill="#f4f1ea"/>
+      <polygon points="0,34.67 60,69.33 60,138.67 0,104" fill="#6e908c"/>
+      <polygon points="60,69.33 120,34.67 120,104 60,138.67" fill="#2e3438"/>
+    </pattern>
+  </defs>
+  <rect width="240" height="208" fill="url(#p)"/>
+</svg>
